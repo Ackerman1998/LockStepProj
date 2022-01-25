@@ -1,0 +1,4 @@
+1.playback
+create a scene(StandaloneGameScene)
+only player self playing in scene,
+record per frame operation ,game over when generate a playback file

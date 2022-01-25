@@ -22,6 +22,20 @@ public class RoleManager : MonoSingleton<RoleManager>
             dic_role[TcpManager.Instance.userData.battleUserInfoes[i].Uid] = _roleCon;
         }
     }
+
+    public void Initialized_Standalone()
+    {
+        dic_role = new Dictionary<int, RoleBase>();
+        pre_roleBase = Resources.Load<GameObject>("Role/RoleBase");
+        print(" TcpManager.Instance.userData.battleUserInfoes.Count=" + TcpManager.Instance.userData.battleUserInfoes.Count);
+        for (int i = 0; i < TcpManager.Instance.userData.battleUserInfoes.Count; i++)
+        {
+            GameObject _base = Instantiate(pre_roleBase, mapRoot);
+            RoleBase _roleCon = _base.GetComponent<RoleBase>();
+            _roleCon.InitData(new GameVector2(0, 0));
+            dic_role[TcpManager.Instance.userData.battleUserInfoes[i].Uid] = _roleCon;
+        }
+    }
     public void AddAllRoleOperations(AllPlayerOperation _allOp) {
         foreach (var item in _allOp.Operations)
         {

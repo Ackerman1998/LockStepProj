@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{3F20E6B7-0D26-62B6-B322-2C0A9BA92BC8}</ProjectGuid>
+    <ProjectGuid>{1B596A7B-9A85-23DC-7651-3274C6F107B5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\BattleScene\UI\MarsButton.cs" />
     <Compile Include="Assets\Scripts\BattleScene\UI\MarsClickBtn.cs" />
     <Compile Include="Assets\Scripts\BattleScene\UI\MarsJoy.cs" />
+    <Compile Include="Assets\Scripts\Config\GlobalConfig.cs" />
     <Compile Include="Assets\Scripts\Config\NetConfig.cs" />
     <Compile Include="Assets\Scripts\Data\BattleData.cs" />
     <Compile Include="Assets\Scripts\Data\UserData.cs" />
@@ -80,6 +81,7 @@
     <Compile Include="Assets\Scripts\Net\UdpManager.cs" />
     <Compile Include="Assets\Scripts\Net\UdpProtobuf.cs" />
     <Compile Include="Assets\Scripts\Test\GameStart.cs" />
+    <Compile Include="Assets\Scripts\UI\StartSceneLogic.cs" />
     <Compile Include="Assets\Scripts\Utils\Bufferbyte.cs" />
     <Compile Include="Assets\Scripts\Utils\CSharpExtension.cs" />
     <Compile Include="Assets\Scripts\Utils\EventDispatch.cs" />
@@ -98,6 +100,7 @@
     <Compile Include="Assets\Scripts\protocol\PBCommon.cs" />
     <Compile Include="Assets\Scripts\protocol\PBHall.cs" />
     <Compile Include="Assets\Scripts\protocol\PBLogin.cs" />
+    <None Include="Assets\progress.txt" />
     <None Include="Assets\StreamingAssets\Desktopspeed.txt" />
     <Reference Include="UnityEngine">
       <HintPath>D:/Unity2019.4.14.f1e1/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
@@ -628,36 +631,36 @@
       <HintPath>D:/Unity2019.4.14.f1e1/Unity/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.Serialization.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>D:/Ackerman/Frame/MyTestProj/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>D:/Ackerman/LockStepProj/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>D:/Ackerman/Frame/MyTestProj/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>D:/Ackerman/LockStepProj/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>D:/Ackerman/Frame/MyTestProj/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>D:/Ackerman/LockStepProj/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>D:/Ackerman/Frame/MyTestProj/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>D:/Ackerman/LockStepProj/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>D:/Ackerman/Frame/MyTestProj/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>D:/Ackerman/LockStepProj/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>D:/Ackerman/Frame/MyTestProj/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>D:/Ackerman/LockStepProj/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>D:/Ackerman/Frame/MyTestProj/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>D:/Ackerman/LockStepProj/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>D:/Ackerman/Frame/MyTestProj/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>D:/Ackerman/LockStepProj/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>D:/Ackerman/Frame/MyTestProj/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>D:/Ackerman/LockStepProj/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="MarsPB.csproj">
-      <Project>{1ED40179-EF15-12DC-9E01-74844136CFEF}</Project>
+      <Project>{DDC122E2-C72C-56BC-751E-597646F49EBF}</Project>
       <Name>MarsPB</Name>
     </ProjectReference>
   </ItemGroup>

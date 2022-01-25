@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static GameStart;
 
 public class BattleManager : MonoSingleton<BattleManager>
@@ -15,10 +16,17 @@ public class BattleManager : MonoSingleton<BattleManager>
 
     private void Start()
     {
-        UdpManager.Instance.Create();
         battleData = BattleData.Instance;
-        readyBattle_callback = ReadyBattleComplete;
-        StartCoroutine(DelayInitFinish());
+     
+        if (SceneManager.GetActiveScene().name == "StandaloneScene") {
+            readyBattle_callback = ReadyBattleComplete_Standalone;
+            readyBattle_callback();
+        } else if (SceneManager.GetActiveScene().name == "GameScene") {
+            UdpManager.Instance.Create();
+            readyBattle_callback = ReadyBattleComplete;
+            StartCoroutine(DelayInitFinish());
+        }
+       
     }
     IEnumerator DelayInitFinish() {
         yield return new WaitUntil(()=> {
@@ -68,6 +76,30 @@ public class BattleManager : MonoSingleton<BattleManager>
 
     private void OnDestroy()
     {
-        UdpManager.Instance.Dispose();
+        if (SceneManager.GetActiveScene().name == "GameScene")
+        {
+            UdpManager.Instance.Dispose();
+        }
     }
+
+
+
+    #region Standalone Mode
+    public void ReadyBattleComplete_Standalone()
+    {
+        if (isStart)
+        {
+            return;
+        }
+        isStart = true;
+        InvokeRepeating("RepeatSendFrameOperation_Standalone", 0, 0.033f);
+        StartCoroutine(StartLogicUpdate());
+        RoleManager.Instance.Initialized_Standalone();
+    }
+
+    private void RepeatSendFrameOperation_Standalone()
+    {
+        battleData.SendCurrentOperationData();
+    }
+    #endregion
 }
