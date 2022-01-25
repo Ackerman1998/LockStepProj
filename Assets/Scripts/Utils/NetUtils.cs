@@ -7,6 +7,9 @@ using System.Text;
 class NetUtils
 {
     public static string GetLocalAddress() {
+#if UNITY_ANDROID
+        return "192.168.1.103";
+#endif
         IPAddress[] iPAddresses = Dns.GetHostAddresses(Dns.GetHostName());
         foreach (IPAddress ip in iPAddresses) {
             if (ip.AddressFamily==System.Net.Sockets.AddressFamily.InterNetwork) {

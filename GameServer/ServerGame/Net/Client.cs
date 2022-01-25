@@ -26,6 +26,10 @@ public class Client
     public void SetUser(UserData userData) {
         myUser = userData;
     }
+    public string GetIpAddress() {
+        return client_ip;
+    }
+
     public UserData GetUser() {
         return myUser;
     }

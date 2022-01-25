@@ -15,9 +15,10 @@ class Udp_Client
 
     public bool Ready { get => ready; set => ready = value; }
 
-    public Udp_Client() {
-        iPEndPoint = new IPEndPoint(IPAddress.Parse(NetUtils.GetLocalAddress()), NetConfig.port_udp);
-        _udpClient = new UdpClient(iPEndPoint);
+    public Udp_Client(string ip) {
+        Debug.Log("Create Upd Client : ip = " + ip);
+        iPEndPoint = new IPEndPoint(IPAddress.Parse(ip), NetConfig.port_udp);
+        _udpClient = new UdpClient(NetConfig.port_udp);
       
         
         StartReceiveMessage();

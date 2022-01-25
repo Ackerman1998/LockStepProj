@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 using static GameStart;
 
@@ -28,6 +30,26 @@ public class BattleManager : MonoSingleton<BattleManager>
         }
        
     }
+
+    public void LoadFile()
+    {
+        string path = Application.streamingAssetsPath + "/Desktopspeed.txt";
+        StartCoroutine(Load(path));
+    }
+
+    IEnumerator Load(string path) {
+        UnityWebRequest unityWebRequest = UnityWebRequest.Get(path);
+        yield return unityWebRequest.SendWebRequest();
+        if (unityWebRequest.isDone)
+        {
+            string text = unityWebRequest.downloadHandler.text;
+            battleData.InitSpeedInfo(text);
+        }
+        else { 
+            
+        }
+    }
+
     IEnumerator DelayInitFinish() {
         yield return new WaitUntil(()=> {
             return UdpManager.Instance.isInit;

@@ -22,11 +22,12 @@ public class BattleData:Singleton<BattleData>
     }
 
     public void Init() {
-        string _fileStr = File.ReadAllText(Application.streamingAssetsPath+ "/Desktopspeed.txt") ;
-        InitSpeedInfo(_fileStr);
+        BattleManager.Instance.LoadFile();
+        //string _fileStr = File.ReadAllText(Application.streamingAssetsPath+ "/Desktopspeed.txt") ;
+        //InitSpeedInfo(_fileStr);
     }
 
-    void InitSpeedInfo(string _fileStr)
+    public void InitSpeedInfo(string _fileStr)
     {
         string[] lineArray = _fileStr.Split("\n"[0]);
 

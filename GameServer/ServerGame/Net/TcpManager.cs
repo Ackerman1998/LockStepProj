@@ -42,9 +42,10 @@ public class TcpManager : Singleton<TcpManager>
     {
         Socket server = ar.AsyncState as Socket;
         Socket client = server.EndAccept(ar);
+        string ip = client.RemoteEndPoint.ToString().Split(':')[0];
         IPEndPoint ipep = client.LocalEndPoint as IPEndPoint;
-        Debug.Log(ipep.Address.ToString() + " is Connnected...");
-        Client cc = new Client(client, ipep.Address.ToString());
+        Debug.Log(ip + " is Connnected...");
+        Client cc = new Client(client, ip);
         server.BeginAccept(AcceptCallBack, server);
     }
 

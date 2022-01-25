@@ -5,3 +5,10 @@ D:\Ackerman\Frame\MyTestProj\GameServer\ServerGame\bin\Debug\ServerGame.pdb
 D:\Ackerman\Frame\MyTestProj\GameServer\ServerGame\obj\Debug\ServerGame.exe
 D:\Ackerman\Frame\MyTestProj\GameServer\ServerGame\obj\Debug\ServerGame.pdb
 D:\Ackerman\Frame\MyTestProj\GameServer\ServerGame\obj\Debug\ServerGame.csprojAssemblyReference.cache
+E:\Ackerman\GProject\LockStepProj\GameServer\ServerGame\bin\Debug\ServerGame.exe.config
+E:\Ackerman\GProject\LockStepProj\GameServer\ServerGame\bin\Debug\ServerGame.exe
+E:\Ackerman\GProject\LockStepProj\GameServer\ServerGame\bin\Debug\ServerGame.pdb
+E:\Ackerman\GProject\LockStepProj\GameServer\ServerGame\obj\Debug\ServerGame.csprojAssemblyReference.cache
+E:\Ackerman\GProject\LockStepProj\GameServer\ServerGame\obj\Debug\ServerGame.csproj.CoreCompileInputs.cache
+E:\Ackerman\GProject\LockStepProj\GameServer\ServerGame\obj\Debug\ServerGame.exe
+E:\Ackerman\GProject\LockStepProj\GameServer\ServerGame\obj\Debug\ServerGame.pdb
