@@ -51,7 +51,7 @@ class GameRoom
             battleUserInfo.Uid = int.Parse(cc.GetUser().uid);
             battleUserInfo.roleID = 1;//默认为1
             tcpEnterBattle.battleUserInfoes.Add(battleUserInfo);
-            Udp_Client udp_Client = new Udp_Client(cc.GetIpAddress());
+            Udp_Client udp_Client = new Udp_Client(cc.GetIpAddress(),cc.GetUdpPort());
             udpClients.Add(battleUserInfo.Uid,udp_Client);
         }
         foreach (Client cc in client_List) {

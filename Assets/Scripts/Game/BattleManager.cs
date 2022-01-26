@@ -19,7 +19,11 @@ public class BattleManager : MonoSingleton<BattleManager>
     private void Start()
     {
         battleData = BattleData.Instance;
-     
+        if (GlobalConfig.Instance.gameType==GameType.Playback) {
+            battleData.Init();
+            PlayBack();
+            return;
+        }
         if (SceneManager.GetActiveScene().name == "StandaloneScene") {
             readyBattle_callback = ReadyBattleComplete_Standalone;
             readyBattle_callback();
@@ -28,7 +32,6 @@ public class BattleManager : MonoSingleton<BattleManager>
             readyBattle_callback = ReadyBattleComplete;
             StartCoroutine(DelayInitFinish());
         }
-       
     }
 
     public void LoadFile()
@@ -78,17 +81,26 @@ public class BattleManager : MonoSingleton<BattleManager>
         yield return new WaitUntil(() => {
             return battleData.GameCurrentFrame>0;
         });
-
-
-        InvokeRepeating("LateUpdateOperation", 0, 0.02f);
+        if (GlobalConfig.Instance.gameType == GameType.Playback)
+        {
+            InvokeRepeating("LateUpdateOperation", 0, 0.033f);
+        }
+        else {
+            InvokeRepeating("LateUpdateOperation", 0, 0.02f);
+        }
+   
     }
 
     void LateUpdateOperation() {
         PBBattle.AllPlayerOperation allPlayerOperation = battleData.GetOperationData();
-        if (allPlayerOperation!=null) {
+        if (allPlayerOperation != null)
+        {
             RoleManager.Instance.AddAllRoleOperations(allPlayerOperation);
             RoleManager.Instance.Logic_Move();
             battleData.AddLogicFrameNum();
+        }
+        else {
+          
         }
     }
 
@@ -121,7 +133,29 @@ public class BattleManager : MonoSingleton<BattleManager>
 
     private void RepeatSendFrameOperation_Standalone()
     {
-        battleData.SendCurrentOperationData();
+        battleData.SendCurrentOperationData_Standalone();
     }
     #endregion
+
+    #region Play back Mode
+    public void PlayBack() {
+        if (isStart)
+        {
+            return;
+        }
+        isStart = true;
+        RecordManager.Instance.Read((obj)=> {
+            RecordFile recordFile = obj;
+            RecordData [] recordData = recordFile.recordDatas.ToArray();
+            foreach (RecordData recordData1 in recordData) {
+                battleData.AddFrameOperationData(recordData1.udpPlayerOperations);
+            }
+            RoleManager.Instance.Initialized_Standalone();
+            StartCoroutine(StartLogicUpdate());
+            
+        });
+       
+    }
+    #endregion
+
 }

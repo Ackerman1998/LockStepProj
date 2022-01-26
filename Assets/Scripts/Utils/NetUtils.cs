@@ -8,7 +8,7 @@ class NetUtils
 {
     public static string GetLocalAddress() {
 #if UNITY_ANDROID
-        return "192.168.1.103";
+        return "192.168.4.52";
 #endif
         IPAddress[] iPAddresses = Dns.GetHostAddresses(Dns.GetHostName());
         foreach (IPAddress ip in iPAddresses) {

@@ -26,6 +26,7 @@ public class GameStart : MonoSingleton<GameStart>
         loginfailed_callback += LoginFail;
         cancelRequestMatch_callback += CancelRquestMatchSuccess;
         requestMatch_callback += RquestMatchSuccess;
+        Debug.Log("IP:"+ NetUtils.GetLocalAddress());
         TcpManager.Instance.Connect(NetUtils.GetLocalAddress(), (result) =>
         {
             if (result)

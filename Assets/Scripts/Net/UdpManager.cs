@@ -17,7 +17,7 @@ public class UdpManager : Singleton<UdpManager>
             return;
         }
         _udpClient = new UdpClient();
-        iPEndPoint = new IPEndPoint(IPAddress.Parse(NetUtils.GetLocalAddress()), 2861);
+        iPEndPoint = new IPEndPoint(IPAddress.Parse(NetUtils.GetLocalAddress()), TcpManager.Instance.userData.portUdp);
         _udpClient.Connect(iPEndPoint);
         isInit = true;
         //StartReceiveMessage();
@@ -31,7 +31,7 @@ public class UdpManager : Singleton<UdpManager>
 
     private void Receive() {
         IPEndPoint ipEp;
-        ipEp = new IPEndPoint(IPAddress.Parse(NetUtils.GetLocalAddress()), 2861);
+        ipEp = new IPEndPoint(IPAddress.Parse(NetUtils.GetLocalAddress()), TcpManager.Instance.userData.portUdp);
         while (isInit) {
             try
             {

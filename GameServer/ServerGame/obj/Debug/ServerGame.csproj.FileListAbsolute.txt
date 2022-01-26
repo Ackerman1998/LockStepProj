@@ -12,3 +12,10 @@ E:\Ackerman\GProject\LockStepProj\GameServer\ServerGame\obj\Debug\ServerGame.csp
 E:\Ackerman\GProject\LockStepProj\GameServer\ServerGame\obj\Debug\ServerGame.csproj.CoreCompileInputs.cache
 E:\Ackerman\GProject\LockStepProj\GameServer\ServerGame\obj\Debug\ServerGame.exe
 E:\Ackerman\GProject\LockStepProj\GameServer\ServerGame\obj\Debug\ServerGame.pdb
+D:\Ackerman\LockStepProj\GameServer\ServerGame\bin\Debug\ServerGame.exe.config
+D:\Ackerman\LockStepProj\GameServer\ServerGame\bin\Debug\ServerGame.exe
+D:\Ackerman\LockStepProj\GameServer\ServerGame\bin\Debug\ServerGame.pdb
+D:\Ackerman\LockStepProj\GameServer\ServerGame\obj\Debug\ServerGame.csprojAssemblyReference.cache
+D:\Ackerman\LockStepProj\GameServer\ServerGame\obj\Debug\ServerGame.csproj.CoreCompileInputs.cache
+D:\Ackerman\LockStepProj\GameServer\ServerGame\obj\Debug\ServerGame.exe
+D:\Ackerman\LockStepProj\GameServer\ServerGame\obj\Debug\ServerGame.pdb

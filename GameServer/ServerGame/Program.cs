@@ -8,11 +8,7 @@ namespace Server
         static UdpClient _udpClient = null;
         static void Main(string[] args)
         {
-            //TcpManager.Instance.Start(NetUtils.GetLocalAddress(), null);
-            Create();
-            Create();
-
-
+            TcpManager.Instance.Start(NetUtils.GetLocalAddress(), null);
             Console.ReadKey();
         }
         public static void Create() {

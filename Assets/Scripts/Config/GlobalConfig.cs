@@ -5,6 +5,7 @@ using UnityEngine;
 public class GlobalConfig : MonoSingleton<GlobalConfig>
 {
     public GameType gameType;
+    public bool recording = false;
     public override void Awake()
     {
         base.Awake();

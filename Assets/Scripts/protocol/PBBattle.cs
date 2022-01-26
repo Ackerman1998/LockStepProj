@@ -65,7 +65,7 @@ namespace PBBattle
         public global::System.Collections.Generic.List<BattleUserInfo> battleUserInfoes { get; } = new global::System.Collections.Generic.List<BattleUserInfo>();
 
     }
-
+    [System.Serializable]
     [global::ProtoBuf.ProtoContract()]
     public partial class PlayerOperation : global::ProtoBuf.IExtensible
     {
@@ -121,7 +121,7 @@ namespace PBBattle
         private int? __pbn__operationValue2;
 
     }
-
+    [System.Serializable]
     [global::ProtoBuf.ProtoContract()]
     public partial class UdpPlayerOperations : global::ProtoBuf.IExtensible
     {
@@ -139,7 +139,7 @@ namespace PBBattle
         public PlayerOperation Operation { get; set; }
 
     }
-
+    [System.Serializable]
     [global::ProtoBuf.ProtoContract()]
     public partial class AllPlayerOperation : global::ProtoBuf.IExtensible
     {
@@ -151,7 +151,7 @@ namespace PBBattle
         public global::System.Collections.Generic.List<PlayerOperation> Operations { get; } = new global::System.Collections.Generic.List<PlayerOperation>();
 
     }
-
+    [System.Serializable]
     [global::ProtoBuf.ProtoContract()]
     public partial class UdpAllPlayerOperations : global::ProtoBuf.IExtensible
     {

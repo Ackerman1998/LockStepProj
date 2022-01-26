@@ -23,7 +23,8 @@ public class UdpProtobuf : Singleton<UdpProtobuf>
                 NetGlobal.Instance.AddAction(() => {
                     BattleManager.Instance.HandleAllPlayerOperations(udpAllPlayerOperations);
                 });
-                //Debug.Log("Receive Game Frame Data [ Frame Num : "+ udpAllPlayerOperations .frameID+" ] Success! move = "+ udpAllPlayerOperations.Operations.Operations[0].Move);
+                //Debug.Log("Receive Game Frame Data [ Frame Num : "+ udpAllPlayerOperations .frameID+" ] Success! move = "+ udpAllPlayerOperations.Operations.Operations.Count+",[0]=" + udpAllPlayerOperations.Operations.Operations[0].Move 
+                //    + ",[1]=" + udpAllPlayerOperations.Operations.Operations[1].Move);
                 break;
             
         }

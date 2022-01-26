@@ -110,7 +110,14 @@ public class MarsJoy : MonoBehaviour {
 	}
     private void Update()
     {
-		frame.text = "Frame:"+BattleManager.Instance.battleData.GameCurrentFrame.ToString();
+		if (GlobalConfig.Instance.gameType == GameType.Playback)
+		{
+			frame.text = "Frame:" + BattleManager.Instance.battleData.GameCurrentFramePlayBack.ToString();
+		}
+		else {
+			frame.text = "Frame:" + BattleManager.Instance.battleData.GameCurrentFrame.ToString();
+		}
+	
 
 	}
 }

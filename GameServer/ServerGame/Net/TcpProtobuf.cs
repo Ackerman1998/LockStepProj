@@ -5,6 +5,7 @@ using System.Net.Sockets;
 public class TcpProtobuf : Singleton<TcpProtobuf>
 {
     int uid = 10000;//先随便定义一个
+    int index = 1;
     /// <summary>
     /// 解析数据
     /// </summary>
@@ -23,7 +24,17 @@ public class TcpProtobuf : Singleton<TcpProtobuf>
                     PBLogin.TcpResponseLogin tcpResponseLogin = new PBLogin.TcpResponseLogin();
                     tcpResponseLogin.Result = true;
                     tcpResponseLogin.Error = "No Error";
-                    tcpResponseLogin.udpPort = NetConfig.port_udp;
+                    if (_client.ClientIpIsLocal())
+                    {
+                        tcpResponseLogin.udpPort = NetConfig.port_udp+ index;
+                        _client.SetPortUdp(tcpResponseLogin.udpPort);
+                        index++;
+                    }
+                    else {
+                       
+                        tcpResponseLogin.udpPort = NetConfig.port_udp;
+                        _client.SetPortUdp(tcpResponseLogin.udpPort);
+                    }
                     tcpResponseLogin.Uid = uid++;
                     _client.SendMessage(MessageData.GetSendMessage<PBLogin.TcpResponseLogin>(tcpResponseLogin, PBCommon.Scmsgid.TcpResponseLogin));
                     TcpManager.Instance.AddUser(tcpRequestLogin.Account, tcpResponseLogin.Uid.ToString(), _client);

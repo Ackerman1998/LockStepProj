@@ -55,6 +55,7 @@
     <Compile Include="Net\Client.cs" />
     <Compile Include="Net\TcpManager.cs" />
     <Compile Include="Net\TcpProtobuf.cs" />
+    <Compile Include="Net\UdpManager.cs" />
     <Compile Include="Net\UdpProtobuf.cs" />
     <Compile Include="Net\Udp_Client.cs" />
     <Compile Include="Plugin\protobuf-net\BclHelpers.cs" />

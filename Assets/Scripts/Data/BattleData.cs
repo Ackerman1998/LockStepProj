@@ -19,6 +19,9 @@ public class BattleData:Singleton<BattleData>
     private List<AllPlayerOperationContainer> allPlayerOperations = new List<AllPlayerOperationContainer>();
     public int GameCurrentFrame {
         get { return allPlayerOperations.Count; }
+    }  
+    public int GameCurrentFramePlayBack {
+        get { return logicCurrentFrame; }
     }
 
     public void Init() {
@@ -61,17 +64,50 @@ public class BattleData:Singleton<BattleData>
         UdpManager.Instance.SendMessage(MessageData.GetSendMessage<PBBattle.UdpPlayerOperations>(udpPlayerOperations, PBCommon.Csmsgid.UdpUpPlayerOperations));
     }
 
+    public void SendCurrentOperationData_Standalone()
+    {
+        if (selfOperation == null)
+        {
+            InitselfOperation();
+            Init();
+        }
+        messageId++;
+        PBBattle.UdpAllPlayerOperations udpAllPlayerOperations = new PBBattle.UdpAllPlayerOperations();
+        PBBattle.AllPlayerOperation allPlayerOperation = new PBBattle.AllPlayerOperation();
+        PlayerOperation sop=new PlayerOperation();
+        sop.Move = selfOperation.Move;
+        sop.operationID = selfOperation.operationID;
+        sop.operationValue1 = selfOperation.operationValue1;
+        sop.operationValue2 = selfOperation.operationValue2;
+        sop.rightOperation = selfOperation.rightOperation;
+        sop.Uid = selfOperation.Uid;
+        allPlayerOperation.Operations.Add(sop);
+        udpAllPlayerOperations.frameID = messageId;
+        udpAllPlayerOperations.Operations = allPlayerOperation;
+        AddFrameOperationData(udpAllPlayerOperations);
+        RecordManager.Instance.AddFrameDataToFile(messageId, udpAllPlayerOperations);
+    }
+
     private void InitselfOperation()
     {
         selfOperation = new PlayerOperation();
     }
 
     public void AddFrameOperationData(PBBattle.UdpAllPlayerOperations allPlayerOperation) {
-        allPlayerOperations.Add(new AllPlayerOperationContainer(allPlayerOperation.Operations, allPlayerOperation.frameID));
+        PBBattle.AllPlayerOperation all = allPlayerOperations.Find((x) => (x.frameNum == allPlayerOperation.frameID)).playerOperation;
+        if (all != null)
+        {
+
+        }
+        else {
+         
+            allPlayerOperations.Add(new AllPlayerOperationContainer(allPlayerOperation.Operations, allPlayerOperation.frameID));
+        }
     }
 
     public PBBattle.AllPlayerOperation GetOperationData() {
         PBBattle.AllPlayerOperation allPlayerOperation = allPlayerOperations.Find((x)=>(x.frameNum== logicCurrentFrame+1)).playerOperation;
+      
         return allPlayerOperation;
     }
 
@@ -81,6 +117,9 @@ public class BattleData:Singleton<BattleData>
 
     public void UpdateMoveDir(int upDir)
     {
+        if (GlobalConfig.Instance.gameType == GameType.Playback) {
+            return;
+        }
         selfOperation.Move = upDir;
     }
 

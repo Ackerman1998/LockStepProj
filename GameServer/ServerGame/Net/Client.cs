@@ -16,6 +16,7 @@ public class Client
     Bufferbyte bufferbyte = new Bufferbyte(1024 * 1024);
     private UserData myUser;
     public int matchingNum = -1;
+    private int portUdp = 2846;
     public  Client(Socket cc,string ipAddress) {
         _socket = cc;
         client_ip = ipAddress;
@@ -23,6 +24,17 @@ public class Client
         messageQueue.Start();
         ReceiveMessage();
     }
+
+    public void SetPortUdp(int port) {
+        portUdp = port;
+    }
+    public int GetUdpPort() {
+        return portUdp;
+    }
+    public bool ClientIpIsLocal() {
+        return string.Equals(client_ip,NetUtils.GetLocalAddress());
+    }
+
     public void SetUser(UserData userData) {
         myUser = userData;
     }
