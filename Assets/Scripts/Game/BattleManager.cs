@@ -19,6 +19,8 @@ public class BattleManager : MonoSingleton<BattleManager>
     private void Start()
     {
         battleData = BattleData.Instance;
+        battleData.GameCurrentFramePlayBack = 0;
+        battleData.AllPlayerOperations.Clear();
         if (GlobalConfig.Instance.gameType==GameType.Playback) {
             battleData.Init();
             PlayBack();
@@ -69,8 +71,9 @@ public class BattleManager : MonoSingleton<BattleManager>
         }
         isStart = true;
         InvokeRepeating("RepeatSendFrameOperation",0,0.033f);
-        StartCoroutine(StartLogicUpdate());
         RoleManager.Instance.Initialized();
+        StartCoroutine(StartLogicUpdate());
+      
     }
 
     private void RepeatSendFrameOperation() {

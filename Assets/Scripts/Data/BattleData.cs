@@ -22,7 +22,10 @@ public class BattleData:Singleton<BattleData>
     }  
     public int GameCurrentFramePlayBack {
         get { return logicCurrentFrame; }
+        set { logicCurrentFrame = value; }
     }
+
+    public List<AllPlayerOperationContainer> AllPlayerOperations { get => allPlayerOperations; set => allPlayerOperations = value; }
 
     public void Init() {
         BattleManager.Instance.LoadFile();
@@ -32,6 +35,9 @@ public class BattleData:Singleton<BattleData>
 
     public void InitSpeedInfo(string _fileStr)
     {
+        dic_speed.Clear();
+        
+        
         string[] lineArray = _fileStr.Split("\n"[0]);
 
         int dir;

@@ -10,7 +10,10 @@ public class RoleManager : MonoSingleton<RoleManager>
 
     private GameObject pre_roleBase;
     private const int standaloneNum = 1000;
-
+    public override void Awake()
+    {
+        
+    }
     public void Initialized()
     {
         dic_role = new Dictionary<int, RoleBase>();

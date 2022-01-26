@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
+
 public class MarsJoy : MonoBehaviour {
 	private Canvas _Canvas;
 	private RectTransform bgRect;
@@ -81,7 +83,9 @@ public class MarsJoy : MonoBehaviour {
 
 		BattleData.Instance.UpdateMoveDir (121);
 	}
-
+	public void BackHome() {
+		SceneManager.LoadScene("StartScene");
+	}
 	public void DragBegin(BaseEventData _data){
 
 	}

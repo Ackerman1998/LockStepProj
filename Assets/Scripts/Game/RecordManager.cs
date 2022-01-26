@@ -3,15 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Text;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
 public class RecordManager : MonoSingleton<RecordManager>
 {
     bool record = false;
     private RecordFile recordFile=null;
     public RecordFile recordFileHistory;
-    private string path = Application.streamingAssetsPath + "/GameRecord.rcd";
+    private string path = Application.streamingAssetsPath + "/GameRecord/";
     // Start is called before the first frame update
     void Start()
     {
@@ -37,22 +39,46 @@ public class RecordManager : MonoSingleton<RecordManager>
 
     public void Save() {
         BinaryFormatter binary = new BinaryFormatter();
-        using (FileStream fileStream = File.Open(path, FileMode.OpenOrCreate))
+        DateTime dateTime = DateTime.Now;
+        StringBuilder sb = new StringBuilder();
+        string time = dateTime.ToString();
+        string [] times = time.Split(' ');
+        times[0].Replace(@"\","/");
+        for (int i=0;i<times[0].Split('/').Length;i++) {
+            sb.Append(times[0].Split('/')[i]);
+            sb.Append("-");
+        }
+        for (int i = 0; i < times[1].Split(':').Length; i++)
+        {
+            sb.Append(times[1].Split(':')[i]);
+            if (i == times[1].Split(':').Length - 1)
+            {
+
+            }
+            else {
+                sb.Append("-");
+            }
+        }
+        string pathReal = Path.Combine(path, sb.ToString()+".rcd");
+        using (FileStream fileStream = File.Open(pathReal, FileMode.OpenOrCreate))
         {
             binary.Serialize(fileStream, recordFile);
         }
     }
     private void OnDestroy()
     {
-        if (GlobalConfig.Instance.gameType == GameType.Playback)
+        if (GlobalConfig.Instance.gameType != GameType.Playback&&SceneManager.GetActiveScene().name!= "StandaloneScene"
+            ||!GlobalConfig.Instance.recording
+            )
         {
             return;
         }
-        //Save();
+        Save();
     }
     public void Read(Action<RecordFile> callback)
     {
-        StartCoroutine(Read_Cor(path, callback));
+        string readPath = Path.Combine(Application.streamingAssetsPath, "GameRecord", GlobalConfig.Instance.currentRecordName);
+        StartCoroutine(Read_Cor(readPath, callback));
     }
     IEnumerator Read_Cor(string path,Action<RecordFile> callback) {
         UnityWebRequest unityWebRequest = UnityWebRequest.Get(path);

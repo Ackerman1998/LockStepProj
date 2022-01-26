@@ -12,6 +12,7 @@ public class GameStart : MonoSingleton<GameStart>
     public GameObject tips;
     public Text account;
     public Text password;
+    public Text peoplenum;
     public delegate void CallBack();
     public delegate void CallBackString(string msg);
     public CallBack login_callback;
@@ -76,7 +77,7 @@ public class GameStart : MonoSingleton<GameStart>
     public void RequestMatch() {
         //request 1 people match
         PBHall.TcpRequestMatch tcpRequestMatch = new PBHall.TcpRequestMatch();
-        tcpRequestMatch.peopleNum = 2;
+        tcpRequestMatch.peopleNum = int.Parse(peoplenum.text);
         tcpRequestMatch.matchType = 1;//1-Match 2-Rank
         TcpManager.Instance.SendMessage(MessageData.GetSendMessage<PBHall.TcpRequestMatch>(tcpRequestMatch, PBCommon.Csmsgid.TcpRequestMatch));
         transform.FindAll("ReuqestButton").gameObject.SetActive(false);

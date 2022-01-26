@@ -1,4 +1,24 @@
-1.playback
+1.playback(standalone is completed!)
 create a scene(StandaloneGameScene)
 only player self playing in scene,
 record per frame operation ,game over when generate a playback file
+
+2.frame sync Fluency test 
+
+3.net mode playback
+
+4.tcp server : post , get interface
+
+5.connect sql for save user's data
+
+6.Disconnection reconnection
+
+7.collision
+
+8.add attack,skill
+
+9.add charactor model to role(use behaviour tree or blend tree)
+
+10.server save frame data when game is over 
+
+11.

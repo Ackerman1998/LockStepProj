@@ -672,6 +672,9 @@
     <Reference Include="UnityEditor.UI">
       <HintPath>D:/Ackerman/LockStepProj/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+      <HintPath>D:/Ackerman/LockStepProj/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="MarsPB.csproj">
