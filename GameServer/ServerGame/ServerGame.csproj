@@ -36,6 +36,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,10 +50,18 @@
     <Compile Include="Data\GameData.cs" />
     <Compile Include="GameLogic\GameMatch.cs" />
     <Compile Include="GameLogic\GameRoom.cs" />
+    <Compile Include="Http\BaseHeader.cs" />
+    <Compile Include="Http\HttpLoginServer.cs" />
+    <Compile Include="Http\HttpRequest.cs" />
+    <Compile Include="Http\HttpResponse.cs" />
+    <Compile Include="Http\IServer.cs" />
+    <Compile Include="Http\RequestHeaders.cs" />
+    <Compile Include="Http\ResponseHeaders.cs" />
     <Compile Include="Interface\IPool.cs" />
     <Compile Include="Manager\MatchManager.cs" />
     <Compile Include="Manager\RoomManager.cs" />
     <Compile Include="Net\Client.cs" />
+    <Compile Include="Http\HttpServer.cs" />
     <Compile Include="Net\TcpManager.cs" />
     <Compile Include="Net\TcpProtobuf.cs" />
     <Compile Include="Net\UdpManager.cs" />
@@ -153,6 +162,7 @@
     <Compile Include="protocol\PBHall.cs" />
     <Compile Include="protocol\PBLogin.cs" />
     <Compile Include="Utils\Bufferbyte.cs" />
+    <Compile Include="Utils\CSharpExtension.cs" />
     <Compile Include="Utils\Debug.cs" />
     <Compile Include="Utils\EventDispatch.cs" />
     <Compile Include="Utils\MessageData.cs" />
@@ -269,6 +279,7 @@
     <None Include="Plugin\protobuf-net\WireType.cs.meta" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Http\RequestMsgExample.txt" />
     <Content Include="Plugin\protobuf-net\Web\TODO.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -93,7 +93,9 @@ public class BattleManager : MonoSingleton<BattleManager>
         }
    
     }
-
+    /// <summary>
+    /// Update Player Operations
+    /// </summary>
     void LateUpdateOperation() {
         PBBattle.AllPlayerOperation allPlayerOperation = battleData.GetOperationData();
         if (allPlayerOperation != null)

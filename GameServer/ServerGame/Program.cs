@@ -8,7 +8,9 @@ namespace Server
         static UdpClient _udpClient = null;
         static void Main(string[] args)
         {
-            TcpManager.Instance.Start(NetUtils.GetLocalAddress(), null);
+            //TcpManager.Instance.Start(NetUtils.GetLocalAddress(), null);
+            HttpLoginServer httpLoginServer = new HttpLoginServer();
+            httpLoginServer.StartUp();
             Console.ReadKey();
         }
         public static void Create() {

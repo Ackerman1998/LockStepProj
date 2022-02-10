@@ -28,9 +28,13 @@ public class RoleBase : MonoBehaviour
 		transform.position = Vector3.Lerp(transform.position, renderPosition, 0.4f);
 		modleParent.rotation = Quaternion.Lerp(modleParent.rotation, renderDir, 0.2f);
 	}
-
+	/// <summary>
+	/// Update Player Rotation
+	/// </summary>
+	/// <param name="_dir"></param>
 	public virtual void Logic_UpdateMoveDir(int _dir)
 	{
+		
 		if (_dir > 120)
 		{
 			logicSpeed = GameVector2.zero;
@@ -44,10 +48,12 @@ public class RoleBase : MonoBehaviour
 		}
 
 	}
-
+	/// <summary>
+	/// Update Player Position
+	/// </summary>
 	public virtual void Logic_Move()
 	{
-		Debug.Log("logicSpeed:"+ logicSpeed);
+		//Debug.Log("logicSpeed:"+ logicSpeed);
 		//  Debug.Log("Logic_Move  "  + Time.realtimeSinceStartup);
 		if (logicSpeed != GameVector2.zero)
 		{ // 如果逻辑速度不等于0

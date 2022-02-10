@@ -99,7 +99,6 @@ public class MarsJoy : MonoBehaviour {
 		joySpeed = joyRectTran.anchoredPosition.normalized;
 
 		float angle = Vector2.SignedAngle (Vector2.right,joySpeed);
-
 		if (angle < 0) {
 			angle += 360f;
 		}
