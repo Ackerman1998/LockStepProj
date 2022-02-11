@@ -353,6 +353,9 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/16.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
+    <Reference Include="LitJson">
+      <HintPath>D:/Ackerman/LockStepProj/Assets/Plugins/LitJson.dll</HintPath>
+    </Reference>
     <Reference Include="netstandard">
       <HintPath>D:/Unity2019.4.14.f1e1/Unity/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
     </Reference>

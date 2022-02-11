@@ -36,6 +36,7 @@ abstract class HttpServer : IServer
         startUp = true;
         while (startUp) {
             TcpClient client = serverListener.AcceptTcpClient();
+       
             Thread thread = new Thread(()=> {
                 HandleRequest(client);
             });

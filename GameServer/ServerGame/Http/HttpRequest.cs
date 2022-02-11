@@ -18,6 +18,7 @@ class HttpRequest : BaseHeader
     private const int MAX_SIZE = 1024 * 1024 * 2;
     private byte[] bytes = new byte[MAX_SIZE];
 
+    public string json { get; set; }
 
     public string ProtocolVersion { get; set; }
 
@@ -25,6 +26,9 @@ class HttpRequest : BaseHeader
     public HttpRequest(Stream stream)
     {
         this.handler = stream;
+        //byte[] buffer = new byte[1024 * 10];
+        //stream.Read(buffer,0,buffer.Length);
+        //Debug.Log(Encoding.UTF8.GetString(buffer)+"\n");
         var data = GetRequestData(handler);
         var rows = Regex.Split(data, Environment.NewLine);
 
@@ -41,6 +45,7 @@ class HttpRequest : BaseHeader
 
         //Request Body
         Body = GetRequestBody(rows);
+        
         var contentLength = GetHeader(RequestHeaders.ContentLength);
         if (int.TryParse(contentLength, out var length) && Body.Length != length)
         {
@@ -50,7 +55,6 @@ class HttpRequest : BaseHeader
                 Body += Encoding.UTF8.GetString(bytes, 0, length);
             } while (Body.Length != length);
         }
-
         //Request "GET"
         if (this.Method == "GET")
         {
@@ -64,7 +68,12 @@ class HttpRequest : BaseHeader
             var contentType = GetHeader(RequestHeaders.ContentType);
             var isUrlencoded = contentType == @"application/x-www-form-urlencoded";
             if (isUrlencoded) this.Params = GetRequestParameters(this.Body);
+       
+            var isJson = contentType == @"application/json";
+            if (isJson) this.Params = GetRequestParameters(this.Body); this.json = this.Body;
+            //Debug.Log("Body:\n" + this.Body);
         }
+       
     }
 
     public Stream GetRequestStream()

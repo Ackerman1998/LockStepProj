@@ -87,6 +87,7 @@
     <Compile Include="Assets\Scripts\Net\UdpManager.cs" />
     <Compile Include="Assets\Scripts\Net\UdpProtobuf.cs" />
     <Compile Include="Assets\Scripts\Test\GameStart.cs" />
+    <Compile Include="Assets\Scripts\Test\TestScripts.cs" />
     <Compile Include="Assets\Scripts\UI\StartSceneLogic.cs" />
     <Compile Include="Assets\Scripts\Utils\Bufferbyte.cs" />
     <Compile Include="Assets\Scripts\Utils\CSharpExtension.cs" />
@@ -290,6 +291,9 @@
     </Reference>
     <Reference Include="UnityEditor">
       <HintPath>D:/Unity2019.4.14.f1e1/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="LitJson">
+      <HintPath>D:/Ackerman/LockStepProj/Assets/Plugins/LitJson.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>D:/Unity2019.4.14.f1e1/Unity/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>

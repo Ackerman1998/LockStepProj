@@ -19,3 +19,5 @@ D:\Ackerman\LockStepProj\GameServer\ServerGame\obj\Debug\ServerGame.csprojAssemb
 D:\Ackerman\LockStepProj\GameServer\ServerGame\obj\Debug\ServerGame.csproj.CoreCompileInputs.cache
 D:\Ackerman\LockStepProj\GameServer\ServerGame\obj\Debug\ServerGame.exe
 D:\Ackerman\LockStepProj\GameServer\ServerGame\obj\Debug\ServerGame.pdb
+D:\Ackerman\LockStepProj\GameServer\ServerGame\bin\Debug\LitJson.dll
+D:\Ackerman\LockStepProj\GameServer\ServerGame\obj\Debug\ServerGame.csproj.CopyComplete

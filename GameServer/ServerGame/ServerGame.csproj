@@ -34,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="LitJson">
+      <HintPath>Plugin\LitJson.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
@@ -279,6 +282,7 @@
     <None Include="Plugin\protobuf-net\WireType.cs.meta" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Http\PostMsgExample.txt" />
     <Content Include="Http\RequestMsgExample.txt" />
     <Content Include="Plugin\protobuf-net\Web\TODO.txt" />
   </ItemGroup>

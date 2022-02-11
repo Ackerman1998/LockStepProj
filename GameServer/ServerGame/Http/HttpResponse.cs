@@ -94,11 +94,12 @@ class HttpResponse : BaseHeader
             var header = BuildHeader();
             byte[] headerBytes = this.Encoding.GetBytes(header);
             handler.Write(headerBytes, 0, headerBytes.Length);
-
+            Debug.Log(Encoding.UTF8.GetString(headerBytes));
             //发送空行
             byte[] lineBytes = this.Encoding.GetBytes(System.Environment.NewLine);
             handler.Write(lineBytes, 0, lineBytes.Length);
-
+            Debug.Log(Encoding.UTF8.GetString(lineBytes));
+            Debug.Log(Encoding.UTF8.GetString(Content));
             //发送内容
             handler.Write(Content, 0, Content.Length);
         }
