@@ -71,6 +71,7 @@
     <Compile Include="Assets\Scripts\BattleScene\UI\MarsButton.cs" />
     <Compile Include="Assets\Scripts\BattleScene\UI\MarsClickBtn.cs" />
     <Compile Include="Assets\Scripts\BattleScene\UI\MarsJoy.cs" />
+    <Compile Include="Assets\Scripts\Collision\CollisionManager.cs" />
     <Compile Include="Assets\Scripts\Config\GlobalConfig.cs" />
     <Compile Include="Assets\Scripts\Config\NetConfig.cs" />
     <Compile Include="Assets\Scripts\Data\BattleData.cs" />
