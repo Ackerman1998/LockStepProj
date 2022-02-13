@@ -8,10 +8,11 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>ServerGame</RootNamespace>
     <AssemblyName>ServerGame</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,10 +33,32 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto">
+      <HintPath>Plugin\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf">
+      <HintPath>Plugin\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4">
+      <HintPath>Plugin\K4os.Compression.LZ4.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4.Streams">
+      <HintPath>Plugin\K4os.Compression.LZ4.Streams.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Hash.xxHash">
+      <HintPath>Plugin\K4os.Hash.xxHash.dll</HintPath>
+    </Reference>
     <Reference Include="LitJson">
       <HintPath>Plugin\LitJson.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data">
+      <HintPath>Plugin\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -164,6 +187,7 @@
     <Compile Include="protocol\PBCommon.cs" />
     <Compile Include="protocol\PBHall.cs" />
     <Compile Include="protocol\PBLogin.cs" />
+    <Compile Include="Sql\SqlManager.cs" />
     <Compile Include="Utils\Bufferbyte.cs" />
     <Compile Include="Utils\CSharpExtension.cs" />
     <Compile Include="Utils\Debug.cs" />
@@ -285,6 +309,9 @@
     <Content Include="Http\PostMsgExample.txt" />
     <Content Include="Http\RequestMsgExample.txt" />
     <Content Include="Plugin\protobuf-net\Web\TODO.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

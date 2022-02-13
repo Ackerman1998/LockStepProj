@@ -9,8 +9,9 @@ namespace Server
         static void Main(string[] args)
         {
             //TcpManager.Instance.Start(NetUtils.GetLocalAddress(), null);
-            HttpLoginServer httpLoginServer = new HttpLoginServer();
-            httpLoginServer.StartUp();
+            //HttpLoginServer httpLoginServer = new HttpLoginServer();
+            //httpLoginServer.StartUp();
+            SqlManager.Instance.CreateSqlDataBase("localhost","TestDatabase","root", "123456");
             Console.ReadKey();
         }
         public static void Create() {
