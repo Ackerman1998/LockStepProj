@@ -12,7 +12,7 @@ namespace Server
             //TcpManager.Instance.Start(NetUtils.GetLocalAddress(), null);
             //HttpLoginServer httpLoginServer = new HttpLoginServer();
             //httpLoginServer.StartUp();
-            TestSql();
+            //TestSql();
             Console.ReadKey();
         }
 

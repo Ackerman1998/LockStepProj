@@ -1,0 +1,6 @@
+D:\Ackerman\Test\TestPublishProject\bin\Release\net5.0\publish\TestPublishProject.exe
+D:\Ackerman\Test\TestPublishProject\bin\Release\net5.0\publish\TestPublishProject.dll
+D:\Ackerman\Test\TestPublishProject\bin\Release\net5.0\publish\TestPublishProject.deps.json
+D:\Ackerman\Test\TestPublishProject\bin\Release\net5.0\publish\TestPublishProject.runtimeconfig.json
+D:\Ackerman\Test\TestPublishProject\bin\Release\net5.0\publish\TestPublishProject.pdb
+D:\Ackerman\Test\TestPublishProject\bin\Release\net5.0\publish\LitJson.dll
