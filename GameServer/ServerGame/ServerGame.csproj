@@ -192,6 +192,7 @@
     <Compile Include="Utils\CSharpExtension.cs" />
     <Compile Include="Utils\Debug.cs" />
     <Compile Include="Utils\EventDispatch.cs" />
+    <Compile Include="Utils\LoadDllUtils.cs" />
     <Compile Include="Utils\MessageData.cs" />
     <Compile Include="Utils\MessageHandler.cs" />
     <Compile Include="Utils\MessageNode.cs" />
@@ -308,10 +309,12 @@
   <ItemGroup>
     <Content Include="Http\PostMsgExample.txt" />
     <Content Include="Http\RequestMsgExample.txt" />
+    <Content Include="libs\ExternalLinkLib.dll" />
     <Content Include="Plugin\protobuf-net\Web\TODO.txt" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

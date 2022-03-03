@@ -13,6 +13,7 @@ namespace Server
             //HttpLoginServer httpLoginServer = new HttpLoginServer();
             //httpLoginServer.StartUp();
             //TestSql();
+            LoadDllUtils.LoadDll("ExternalLinkLib");
             Console.ReadKey();
         }
 

@@ -1,0 +1,7 @@
+D:\Ackerman\LockStepProj\GameServer\ExternalLinkLib\bin\Debug\ExternalLinkLib.dll
+D:\Ackerman\LockStepProj\GameServer\ExternalLinkLib\bin\Debug\ExternalLinkLib.pdb
+D:\Ackerman\LockStepProj\GameServer\ExternalLinkLib\obj\Debug\ExternalLinkLib.csproj.CoreCompileInputs.cache
+D:\Ackerman\LockStepProj\GameServer\ExternalLinkLib\obj\Debug\ExternalLinkLib.dll
+D:\Ackerman\LockStepProj\GameServer\ExternalLinkLib\obj\Debug\ExternalLinkLib.pdb
+D:\Ackerman\LockStepProj\GameServer\ServerGame\bin\Release\libs\ExternalLinkLib.dll
+D:\Ackerman\LockStepProj\GameServer\ServerGame\bin\Release\libs\ExternalLinkLib.pdb
